@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MFranklin, LLC - Cybersecurity Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Veteran-owned cybersecurity business offering security assessments, compliance consulting, and training services.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f7f9fc;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            padding: 2px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        /* ========================================
+           HEADER LOGO SIZE
+           Current: 130px height
+           To adjust: Change height value
+           ======================================== */
+        header .logo img {
+            height: 250px;
+            width: auto;
+            max-width: 600px;
+            object-fit: contain;
+            object-position: center;
+            background: transparent;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 35px;
+            align-items: center;
+        }
+
+        nav ul li a {
+            color: #555;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #0066ff;
+        }
+
+        nav ul li a.cta {
+            background: linear-gradient(135deg, #0066ff, #00a8ff);
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 6px;
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+        }
+
+        nav ul li a.cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 102, 255, 0.3);
+        }
+
+        /* Hero Section - Reduced white space with personal background */
+        .hero {
+            background: linear-gradient(135deg, rgba(240, 244, 255, 0.95) 0%, rgba(230, 240, 255, 0.95) 100%), url('images/background.jpg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            padding: 50px 40px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: #666;
+            margin-bottom: 35px;
+            line-height: 1.7;
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        /* ========================================
+           CERTIFICATION BADGES SIZE
+           Current: 144px height
+           To adjust: Change height value
+           ======================================== */
+        .hero-badges img {
+            height: 144px;
+            width: auto;
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
+            transition: transform 0.3s ease;
+        }
+
+        .hero-badges img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Stats Section - Reduced white space */
+        .stats {
+            background: #fff;
+            padding: 40px 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+            margin-top: -40px;
+            position: relative;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #0066ff;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Services Section - Reduced white space */
+        .services {
+            padding: 50px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: #fff;
+            padding: 40px 35px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+            border: 1px solid #e8ecf1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 24px rgba(0, 102, 255, 0.12);
+            border-color: #0066ff;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+        }
+
+        .service-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #0066ff;
+            margin-bottom: 18px;
+        }
+
+        .service-card p {
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .service-card ul {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .service-card ul li {
+            color: #555;
+            padding: 8px 0;
+            padding-left: 28px;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .service-card ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #0066ff;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .service-button {
+            display: block;
+            background: linear-gradient(135deg, #0066ff, #00a8ff);
+            color: #fff;
+            padding: 14px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .service-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 102, 255, 0.3);
+        }
+
+        /* Why Choose Us Section - Reduced white space with personal background */
+        .why-choose {
+            background: linear-gradient(135deg, rgba(248, 250, 252, 0.97) 0%, rgba(240, 244, 255, 0.97) 100%), url('images/archive-personal-photos/military01.jpg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            padding: 50px 40px;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-top: 35px;
+        }
+
+        .why-item {
+            background: #fff;
+            padding: 35px 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .why-item h4 {
+            font-size: 1.3rem;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .why-item p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #0066ff, #00a8ff);
+            padding: 70px 40px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 35px;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #fff;
+            color: #0066ff;
+            padding: 16px 45px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: #fff;
+            padding: 40px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #e8ecf1;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 2px;
+                padding: 10px;
+            }
+
+            header .logo img {
+                height: 250px;
+                max-width: 600px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-badges {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .hero-badges img {
+                height: 70px;
+            }
+
+            .stats {
+                margin-top: 0;
+                grid-template-columns: 1fr;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="https://mfranklin.org" target="_blank" rel="noopener noreferrer"><img src="images/2mfranklin,llc.png" alt="MFranklin LLC"></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="https://mfranklin.org" target="_blank" rel="noopener noreferrer">Personal Site</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#why-choose">Why Us</a></li>
+                <li><a href="https://www.fiverr.com/mfrankline" target="_blank" rel="noopener" class="cta">Get Started</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Veteran-Owned Cybersecurity Business</h1>
+                <p>20 years of multi-domain security experience. High level protection for your business. From network assessments to compliance consulting, we secure what matters most.</p>
+                <div class="hero-badges">
+                    <img src="images/security-plus.png" alt="CompTIA Security+ Certified">
+                    <img src="images/veteran-owned-business.png" alt="Veteran-Owned Business">
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats">
+            <div class="stat">
+                <div class="stat-number">20+</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">150+</div>
+                <div class="stat-label">Personnel Led</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Veteran-Owned</div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services" id="services">
+            <div class="section-header">
+                <h2>Professional Cybersecurity Services</h2>
+                <p>Comprehensive security solutions designed to protect your business from evolving threats</p>
+            </div>
+
+            <div class="service-grid">
+                <!-- Service 1: Security Assessment -->
+                <div class="service-card">
+                    <h3>Security Assessment</h3>
+                    <div class="service-price">From $500</div>
+                    <p>Comprehensive network vulnerability assessment with detailed remediation roadmap.</p>
+                    <ul>
+                        <li>Network vulnerability scan</li>
+                        <li>Security posture report</li>
+                        <li>Top vulnerabilities identified</li>
+                        <li>Remediation recommendations</li>
+                        <li>Executive summary</li>
+                    </ul>
+                    <a href="https://www.fiverr.com/mfrankline" target="_blank" rel="noopener" class="service-button">View on Fiverr</a>
+                </div>
+
+                <!-- Service 2: Compliance Consulting -->
+                <div class="service-card">
+                    <h3>Compliance Roadmap</h3>
+                    <div class="service-price">From $1,200</div>
+                    <p>Navigate HIPAA, SOC 2, or PCI-DSS compliance with military precision.</p>
+                    <ul>
+                        <li>Comprehensive gap analysis</li>
+                        <li>90-day implementation plan</li>
+                        <li>Policy template package</li>
+                        <li>Kickoff & review calls</li>
+                        <li>Compliance documentation</li>
+                    </ul>
+                    <a href="https://www.fiverr.com/mfrankline" target="_blank" rel="noopener" class="service-button">Get Started</a>
+                </div>
+
+                <!-- Service 3: Security Training -->
+                <div class="service-card">
+                    <h3>Security Training</h3>
+                    <div class="service-price">From $800</div>
+                    <p>Employee security training they'll actually remember. Taught by a former Marine instructor.</p>
+                    <ul>
+                        <li>Live virtual training sessions</li>
+                        <li>Phishing awareness modules</li>
+                        <li>Incident response basics</li>
+                        <li>PDF handout materials</li>
+                        <li>Quarterly refreshers available</li>
+                    </ul>
+                    <a href="https://www.fiverr.com/mfrankline" target="_blank" rel="noopener" class="service-button">Book Workshop</a>
+                </div>
+
+                <!-- Service 4: Quick Services -->
+                <div class="service-card">
+                    <h3>Quick Security Services</h3>
+                    <div class="service-price">From $150</div>
+                    <p>Fast-turnaround services for immediate security needs and quick wins.</p>
+                    <ul>
+                        <li>Website security audits</li>
+                        <li>Email security setup</li>
+                        <li>Security policy templates</li>
+                        <li>30-minute consultation calls</li>
+                        <li>Same-day delivery available</li>
+                    </ul>
+                    <a href="https://www.fiverr.com/mfrankline" target="_blank" rel="noopener" class="service-button">Browse Services</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section class="why-choose" id="why-choose">
+            <div class="section-header">
+                <h2>Why Choose MFranklin, LLC</h2>
+                <p>High level security expertise meets civilian business needs</p>
+            </div>
+
+            <div class="why-grid">
+                <div class="why-item">
+                    <h4>Multi-Domain Expertise</h4>
+                    <p>20 years securing operations across Land, Maritime, Air, Space, and Cyber domains. Experience you can trust.</p>
+                </div>
+                <div class="why-item">
+                    <h4>Veteran Leadership</h4>
+                    <p>Led teams from 4 to 150+ personnel. Bringing military discipline and precision to your security posture.</p>
+                </div>
+                <div class="why-item">
+                    <h4>Real-World Experience</h4>
+                    <p>Combat deployments and international operations. We understand high-stakes security challenges.</p>
+                </div>
+                <div class="why-item">
+                    <h4>Clear Communication</h4>
+                    <p>Former instructor with proven track record. We translate complex security concepts into actionable strategies.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2>Ready to Secure Your Business?</h2>
+            <p>Get a free consultation and discover how we can strengthen your security posture.</p>
+            <a href="https://www.fiverr.com/mfrankline" target="_blank" rel="noopener" class="cta-button">Start Your Project</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MFranklin, LLC. All rights reserved. Veteran-Owned Business.</p>
+    </footer>
+</body>
+</html>
