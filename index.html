@@ -219,12 +219,6 @@
             margin-bottom: 12px;
         }
 
-        .service-price {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #0066ff;
-            margin-bottom: 18px;
-        }
 
         .service-card p {
             color: #666;
@@ -272,52 +266,12 @@
             box-shadow: 0 6px 20px rgba(0, 102, 255, 0.3);
         }
 
-        /* Why Choose Us Section - Reduced white space with video background */
+        /* Why Choose Us Section - Reduced white space with personal background */
         .why-choose {
-            position: relative;
+            background: linear-gradient(135deg, rgba(248, 250, 252, 0.97) 0%, rgba(240, 244, 255, 0.97) 100%), url('images/archive-personal-photos/military01.jpg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
             padding: 50px 40px;
-            overflow: hidden;
-        }
-
-        .why-bg-video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translate(-50%, -50%);
-            z-index: 0;
-            object-fit: cover;
-            object-position: center top;
-        }
-
-        .why-fallback {
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(248, 250, 252, 0.97) 0%, rgba(240, 244, 255, 0.97) 100%);
-            z-index: 0;
-        }
-
-        .why-choose-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .why-choose::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(248, 250, 252, 0.95) 0%, rgba(240, 244, 255, 0.95) 100%);
-            z-index: 0;
         }
 
         .why-choose .section-header p {
@@ -456,14 +410,6 @@
             .cta-section h2 {
                 font-size: 2rem;
             }
-
-            .why-bg-video {
-                display: none;
-            }
-
-            .why-fallback {
-                display: block;
-            }
         }
     </style>
 </head>
@@ -522,7 +468,6 @@
                 <!-- Service 1: Security Assessment -->
                 <div class="service-card">
                     <h3>Security Assessment</h3>
-                    <div class="service-price">From $500</div>
                     <p>Comprehensive network vulnerability assessment with detailed remediation roadmap.</p>
                     <ul>
                         <li>Network vulnerability scan</li>
@@ -537,7 +482,6 @@
                 <!-- Service 2: Compliance Consulting -->
                 <div class="service-card">
                     <h3>Compliance Roadmap</h3>
-                    <div class="service-price">From $1,200</div>
                     <p>Navigate HIPAA, SOC 2, or PCI-DSS compliance with military precision.</p>
                     <ul>
                         <li>Comprehensive gap analysis</li>
@@ -552,7 +496,6 @@
                 <!-- Service 3: Security Training -->
                 <div class="service-card">
                     <h3>Security Training</h3>
-                    <div class="service-price">From $800</div>
                     <p>Employee security training they'll actually remember. Taught by a former Marine instructor.</p>
                     <ul>
                         <li>Live virtual training sessions</li>
@@ -567,7 +510,6 @@
                 <!-- Service 4: Quick Services -->
                 <div class="service-card">
                     <h3>Quick Security Services</h3>
-                    <div class="service-price">From $150</div>
                     <p>Fast-turnaround services for immediate security needs and quick wins.</p>
                     <ul>
                         <li>Website security audits</li>
@@ -583,10 +525,6 @@
 
         <!-- Why Choose Us Section -->
         <section class="why-choose" id="why-choose">
-            <video autoplay muted loop playsinline class="why-bg-video">
-                <source src="images/videos/Japan.mp4" type="video/mp4">
-            </video>
-            <div class="why-fallback"></div>
             <div class="why-choose-content">
                 <div class="section-header">
                     <h2>Why Choose MFranklin, LLC</h2>
