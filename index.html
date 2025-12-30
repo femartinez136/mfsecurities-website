@@ -272,12 +272,51 @@
             box-shadow: 0 6px 20px rgba(0, 102, 255, 0.3);
         }
 
-        /* Why Choose Us Section - Reduced white space with personal background */
+        /* Why Choose Us Section - Reduced white space with video background */
         .why-choose {
-            background: linear-gradient(135deg, rgba(248, 250, 252, 0.97) 0%, rgba(240, 244, 255, 0.97) 100%), url('images/archive-personal-photos/military01.jpg') no-repeat center center;
-            background-size: cover;
-            background-attachment: fixed;
+            position: relative;
             padding: 50px 40px;
+            overflow: hidden;
+        }
+
+        .why-bg-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            object-fit: cover;
+        }
+
+        .why-fallback {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(248, 250, 252, 0.97) 0%, rgba(240, 244, 255, 0.97) 100%);
+            z-index: 0;
+        }
+
+        .why-choose-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .why-choose::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(248, 250, 252, 0.95) 0%, rgba(240, 244, 255, 0.95) 100%);
+            z-index: 0;
         }
 
         .why-grid {
@@ -411,6 +450,14 @@
             .cta-section h2 {
                 font-size: 2rem;
             }
+
+            .why-bg-video {
+                display: none;
+            }
+
+            .why-fallback {
+                display: block;
+            }
         }
     </style>
 </head>
@@ -530,27 +577,33 @@
 
         <!-- Why Choose Us Section -->
         <section class="why-choose" id="why-choose">
-            <div class="section-header">
-                <h2>Why Choose MFranklin, LLC</h2>
-                <p>High level security expertise meets civilian business needs</p>
-            </div>
+            <video autoplay muted loop playsinline class="why-bg-video">
+                <source src="images/videos/Japan.mp4" type="video/mp4">
+            </video>
+            <div class="why-fallback"></div>
+            <div class="why-choose-content">
+                <div class="section-header">
+                    <h2>Why Choose MFranklin, LLC</h2>
+                    <p>High level security expertise meets civilian business needs</p>
+                </div>
 
-            <div class="why-grid">
-                <div class="why-item">
-                    <h4>Multi-Domain Expertise</h4>
-                    <p>20 years securing operations across Land, Maritime, Air, Space, and Cyber domains. Experience you can trust.</p>
-                </div>
-                <div class="why-item">
-                    <h4>Veteran Leadership</h4>
-                    <p>Led teams from 4 to 150+ personnel. Bringing military discipline and precision to your security posture.</p>
-                </div>
-                <div class="why-item">
-                    <h4>Real-World Experience</h4>
-                    <p>Combat deployments and international operations. We understand high-stakes security challenges.</p>
-                </div>
-                <div class="why-item">
-                    <h4>Clear Communication</h4>
-                    <p>Former instructor with proven track record. We translate complex security concepts into actionable strategies.</p>
+                <div class="why-grid">
+                    <div class="why-item">
+                        <h4>Multi-Domain Expertise</h4>
+                        <p>20 years securing operations across Land, Maritime, Air, Space, and Cyber domains. Experience you can trust.</p>
+                    </div>
+                    <div class="why-item">
+                        <h4>Veteran Leadership</h4>
+                        <p>Led teams from 4 to 150+ personnel. Bringing military discipline and precision to your security posture.</p>
+                    </div>
+                    <div class="why-item">
+                        <h4>Real-World Experience</h4>
+                        <p>Combat deployments and international operations. We understand high-stakes security challenges.</p>
+                    </div>
+                    <div class="why-item">
+                        <h4>Clear Communication</h4>
+                        <p>Former instructor with proven track record. We translate complex security concepts into actionable strategies.</p>
+                    </div>
                 </div>
             </div>
         </section>
